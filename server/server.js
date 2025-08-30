@@ -15,7 +15,6 @@ const server = http.createServer(app);
 
 // Middleware setup
 app.use(cors({
-  origin: "https://chat-app-pi-jet-19.vercel.app",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true

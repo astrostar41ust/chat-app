@@ -1,4 +1,5 @@
-**SunshineChat**
+# **SunshineChat**
+
 SunshineChat is a full-stack, real-time chat application built with the MERN stack (MongoDB, Express.js, React, Node.js) and Socket.IO. It provides a seamless and interactive chatting experience with features like user authentication, real-time messaging, and image sharing.
 
 Live Demo

@@ -59,4 +59,4 @@ if(process.env.NODE_ENV !== "production"){
 }
 
 // Export server for Vercel
-export default app;
+export default server;

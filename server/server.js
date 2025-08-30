@@ -20,6 +20,7 @@ app.use(cors({
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
+app.options("*", cors());
 app.use(express.json({ limit: "4mb" }));
 
 

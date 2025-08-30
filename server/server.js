@@ -31,15 +31,22 @@ io.on("connection", (socket) => {
   const userId = socket.handshake.query.userId;
   console.log("User connected" , userId)
 
-  if(userId) userSocketMap[userId] = socket.id
+  // if(userId) userSocketMap[userId] = socket.id
+  if (userId) {
+    if (!userSocketMap[userId]) userSocketMap[userId] = [];
+    userSocketMap[userId].push(socket.id);
+  }
 
   // Emit online users to all connected client
   io.emit("getOnlineUsers", Object.keys(userSocketMap))
 
   socket.on("disconnect", ()=> {
-    console.log("User disconnected", userId)
-    delete userSocketMap[userId]
-    io.emit("getOnlineUsers", Object.keys(userSocketMap))
+    // console.log("User disconnected", userId)
+    // delete userSocketMap[userId]
+    // io.emit("getOnlineUsers", Object.keys(userSocketMap))
+    userSocketMap[userId] = userSocketMap[userId]?.filter(id => id !== socket.id);
+  if (!userSocketMap[userId]?.length) delete userSocketMap[userId];
+  io.emit("getOnlineUsers", Object.keys(userSocketMap));
   })
 })
 
@@ -55,7 +62,7 @@ await connectDB();
 if(process.env.NODE_ENV !== "production"){
   const PORT = process.env.PORT || 5000;
   server.listen(PORT, () => {
-    console.log("Server running on port PORT" + PORT);
+    console.log("Server running on PORT" + PORT);
   });
   
 }

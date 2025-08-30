@@ -20,9 +20,11 @@ const RightSidebar = () => {
   return (
     selectedUser && (
       <div
-        className={`bg-blue-900/20 text-white w-full relative
-      overflow-y-scroll ${selectedUser ? "max-md:hidden" : ""}`}
-      >
+      className={`bg-blue-900/20 text-white w-full relative overflow-y-scroll
+        ${selectedUser ? "hidden lg:block" : ""}`}
+    >
+
+        
         <div
           className="pt-16 flex flex-col items-center gap-2 text-xs
         font-light mx-auto"

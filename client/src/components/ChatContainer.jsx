@@ -49,7 +49,7 @@ const ChatContainer = () => {
     }
   }, [messages]);
   return selectedUser ? (
-    <div className="h-full overflow-scroll relative backdrop-blur-lg">
+    <div className="h-full overflow-scroll backdrop-blur-lg">
       <div className="flex items-center gap-3 py-3 mx-4 border-b border-blue-600/50">
         <img
           src={selectedUser.picture || assets.avatar_icon}

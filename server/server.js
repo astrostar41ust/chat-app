@@ -14,7 +14,8 @@ const server = http.createServer(app);
 
 
 // Middleware setup
-app.use(cors());
+app.use(cors({ origin: "*" }));
+
 app.use(express.json({ limit: "4mb" }));
 
 
@@ -66,5 +67,5 @@ server.listen(PORT, () => {
 });
 
 
-// Export server for Vercel
+// Export server
 export default server;

@@ -14,12 +14,7 @@ const server = http.createServer(app);
 
 
 // Middleware setup
-app.use(cors({
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
-  credentials: true
-}));
-app.options("*", cors());
+app.use(cors());
 app.use(express.json({ limit: "4mb" }));
 
 

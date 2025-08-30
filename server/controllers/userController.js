@@ -68,7 +68,14 @@ export const login = async (req, res) => {
 
 // Controller to check if user is authenticate
 export const checkAuth = (req, res) => {
-    res.json({success: true, user: req.user})
+  try {
+    res.json({success: true, user: req.user, message: "Auth check successful" })
+  
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Server error" });
+  }
+   
 }
 
 export const updateProfile = async (req, res) => {
